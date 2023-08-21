@@ -1,11 +1,19 @@
+using ZenitPolarProject.Interfaces;
+
 namespace ZenitPolarProject;
 
-public class ZenitEncrypter
+public class ZenitEncrypter : IEncrypter
 {
     public string? OriginalMessage { get; set; }
     public Dictionary<char, char> Substitutions = new Dictionary<char, char>();
     
     public ZenitEncrypter()
+    {
+        ConfigureSubstitutions();
+    }
+
+
+    private void ConfigureSubstitutions()
     {
         Substitutions['Z'] = 'P';
         Substitutions['E'] = 'O';

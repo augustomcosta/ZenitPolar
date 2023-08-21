@@ -1,10 +1,11 @@
 ﻿using ZenitPolarProject;
+using ZenitPolarProject.Interfaces;
 
 Console.WriteLine("## Zenit Polar Project ##\n");
 
 while (true)
 {
-    var encrypt = new ZenitEncrypter();
+    IEncrypter encrypter = new ZenitEncrypter();
     Console.WriteLine("Digite a mensagem a ser criptografada: (insira 999 para sair)\n");
     string? originalMessage = Console.ReadLine();
     
@@ -12,9 +13,7 @@ while (true)
     {
         break;
     }
-    
-    encrypt.Encrypt(originalMessage);
-    
+    encrypter.Encrypt(originalMessage);
 }
 
 
